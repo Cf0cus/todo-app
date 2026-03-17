@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+
+<form action="{% url 'todolist:save' %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <h2>add new task:</h2>
+    <label for="task_desc">task description: </label>
+    <input type="text" name="task_desc" id="task_desc">
+</fieldset>
+<input type="submit" value="add">
+
+</form>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<h1>todo</h1>
+
+<form action="{% url 'todolist:todoupdate' %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <h3>Current saved Tasks: </h3>
+        <h5>Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task</h5>
+        {% if task_list %}
+            {% for task in task_list %}
+                {% if task.status == False %}
+                    <input type="checkbox" name="task" id="task{{forloop.counter}}" value={{task.id}}>
+                    <label for="task{{forloop.counter}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{task.task_desc}}--{{task.pub_date}}</label>
+                    <br>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <h4>no tasks found!</h4>
+        {% endif %}
+    </fieldset>
+    <input type="submit" value="update">
+</form>
+
+<br>
+
+<label for="back">do you want to add a task?</label><br>
+<a href="{% url 'todolist:todoadd' %}" id="back">
+    <button>click here</button>
+</a>
