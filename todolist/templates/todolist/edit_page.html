@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 
+<h2>choose task to edit</h2>
+
 {% for task in task_list %}
     <a href="{% url 'todolist:taskedit' task.id %}">{{task.task_desc}}</a>
     <br>
-{% endfor%}
+{% endfor %}
 <br><br><br>
 <a href="{% url 'todolist:todoview' %}">
     <button>go back to view page</button>

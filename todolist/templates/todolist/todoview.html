@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<h1>todo</h1>
+<h1>todo app</h1>
 
 <form action="{% url 'todolist:todoupdate' %}" method="post">
     {% csrf_token %}
@@ -28,7 +28,6 @@
     <button>click here</button>
 </a>
 <br>
-
 
 <label for="back">do you want to edit a task?</label><br>
 <a href="{% url 'todolist:edit' %}" id="edit">
