@@ -32,3 +32,33 @@ def update_task(request):
         task.save()
     
     return HttpResponseRedirect(reverse("todolist:todoview"))
+
+
+def edit_page(request):
+    task_list = Task.objects.all()
+
+    return render(request,"todolist/edit_page.html",{'task_list':task_list})
+
+def edit_task(request,task_id):
+    choosen_task = get_object_or_404(Task, pk=task_id)
+
+    return render(request,"todolist/edit_task.html",{'choosen_task':choosen_task})
+
+def save_edit(request,task_id):
+    edited_task = get_object_or_404(Task,pk=task_id)
+    updated_task_desc = request.POST["task_desc"]
+
+    try:
+        updated_task_status = True if request.POST["task_status"]=="True" else ""
+        edited_task.status = updated_task_status
+    except:
+        edited_task.status = False
+        
+    edited_task.task_desc = updated_task_desc
+    
+      
+    
+
+    edited_task.save()
+    
+    return HttpResponseRedirect(reverse("todolist:edit"))

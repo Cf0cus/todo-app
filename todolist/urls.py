@@ -9,4 +9,7 @@ urlpatterns = [
     path("add/",views.add_task_page, name="todoadd"),
     path("save/", views.save_task, name="save"),
     path("update/",views.update_task,name='todoupdate'),
+    path("edit/",views.edit_page,name="edit"),
+    path("<int:task_id>/edit/", views.edit_task,name="taskedit"),
+    path("<int:task_id>/save/",views.save_edit,name="editsave"),
 ]

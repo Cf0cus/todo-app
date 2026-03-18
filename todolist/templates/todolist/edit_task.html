@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<h2>update task info</h2>
+
+<br>
+
+<form action="{% url 'todolist:editsave' choosen_task.id %}" method="post">
+    {% csrf_token %}
+    <fieldset>
+        <label for="task_desc">task description:</label><br>
+        <input type="text" name="task_desc" id="task_desc" value="{{choosen_task.task_desc}}"> 
+        <br>
+        <label for="task_status">task status:</label><br>
+        {% if choosen_task.status %}
+            <input type="checkbox" name="task_status" id="task_status" value={{True}} checked>
+        {% else %}
+            <input type="checkbox" name="task_status" id="task_status" value={{True}}> 
+        {% endif %}
+        <br>
+    </fieldset>
+    <input type="submit" value="update">
+</form>
+<a href="{% url 'todolist:edit'%}">
+    <button>go back</button>
+</a>
