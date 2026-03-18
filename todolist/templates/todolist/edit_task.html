@@ -23,3 +23,7 @@
 <a href="{% url 'todolist:edit'%}">
     <button>go back</button>
 </a>
+<br>
+<a href="{% url 'todolist:delete' choosen_task.id %}">
+    <button>delete Task</button>
+</a>

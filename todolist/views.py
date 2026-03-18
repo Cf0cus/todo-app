@@ -46,6 +46,7 @@ def edit_task(request,task_id):
 
 def save_edit(request,task_id):
     edited_task = get_object_or_404(Task,pk=task_id)
+    
     updated_task_desc = request.POST["task_desc"]
 
     try:
@@ -56,9 +57,14 @@ def save_edit(request,task_id):
 
     edited_task.task_desc = updated_task_desc
     
-      
-    
 
     edited_task.save()
     
+    return HttpResponseRedirect(reverse("todolist:edit"))
+
+def delete_task(request,task_id):
+    delete_task = get_object_or_404(Task,pk=task_id)
+    delete_task.delete()
+    delete_task.save()
+
     return HttpResponseRedirect(reverse("todolist:edit"))

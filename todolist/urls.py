@@ -12,4 +12,5 @@ urlpatterns = [
     path("edit/",views.edit_page,name="edit"),
     path("<int:task_id>/edit/", views.edit_task,name="taskedit"),
     path("<int:task_id>/save/",views.save_edit,name="editsave"),
+    path("<int:task_id>/delete/",views.delete_task,name="delete"),
 ]
