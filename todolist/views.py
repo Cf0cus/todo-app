@@ -49,11 +49,11 @@ def save_edit(request,task_id):
     updated_task_desc = request.POST["task_desc"]
 
     try:
-        updated_task_status = True if request.POST["task_status"]=="True" else ""
+        updated_task_status = request.POST["task_status"]=="True"
         edited_task.status = updated_task_status
     except:
         edited_task.status = False
-        
+
     edited_task.task_desc = updated_task_desc
     
       
