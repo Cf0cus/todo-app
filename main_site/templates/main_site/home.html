@@ -1,14 +1,25 @@
-<h1>welcome</h1>
-<br>
-<br>
-<h2>this is a todolist app</h2>
-<h4>click the button to start!</h4>
+{% load static %}
+<!DOCTYPE html>
 
-<a href="{% url 'todolist:todoview' %}">
-    <button>click here to view list of tasks</button>
-</a>
-<br>
-<br>
-<a href="{% url 'todolist:todoadd' %}">
-    <button>click here for adding a task</button>
-</a>
+<link rel="stylesheet" href="{% static 'main_site/style.css' %}">
+<html>
+    <head>
+        <title>Todo app</title>
+    </head>
+
+    <body>
+
+
+        <h1>this is a todolist app</h1>
+        <h3>click the buttons below:</h3>
+
+        <a href="{% url 'todolist:todoview' %}">
+            <button>click here to view list of tasks</button>
+        </a>
+        <br>
+        <br>
+        <a href="{% url 'todolist:todoadd' %}">
+            <button>click here for adding a task</button>
+        </a>
+    </body>
+</html>

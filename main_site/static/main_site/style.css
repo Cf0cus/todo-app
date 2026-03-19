@@ -1,0 +1,27 @@
+body {
+    background: black url("images/background.png");
+}
+
+li a{
+    color: rgb(0, 247, 255);
+}
+h1 {
+    color: white;
+}
+h2 {
+    color: white;
+}
+h3 {
+    color: white;
+}
+h4{
+    color:white;
+}
+label {
+    color:white;
+}
+
+#div-view {
+    color: white;
+}
+

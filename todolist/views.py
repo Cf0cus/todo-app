@@ -65,6 +65,5 @@ def save_edit(request,task_id):
 def delete_task(request,task_id):
     delete_task = get_object_or_404(Task,pk=task_id)
     delete_task.delete()
-    delete_task.save()
 
     return HttpResponseRedirect(reverse("todolist:edit"))

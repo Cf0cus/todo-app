@@ -1,12 +1,22 @@
+{% load static %}
 <!DOCTYPE html>
+<link rel="stylesheet" href="{% static 'todolist/style.css' %}">
 
-<h2>choose task to edit</h2>
+<html>
+<head>
+    <title>Edit</title>
+</head>
+    <body>
+        <h2>choose task to edit</h2>
 
-{% for task in task_list %}
-    <a href="{% url 'todolist:taskedit' task.id %}">{{task.task_desc}}</a>
-    <br>
-{% endfor %}
-<br><br><br>
-<a href="{% url 'todolist:todoview' %}">
-    <button>go back to view page</button>
-</a>
+        <h4>Tasks: </h4>
+        {% for task in task_list %}
+            <li><a href="{% url 'todolist:taskedit' task.id %}">-{{task.task_desc}}</a></li>
+            <br>
+        {% endfor %}
+        <br><br><br>
+        <a href="{% url 'todolist:todoview' %}">
+            <button>go back to view page</button>
+        </a>
+    </body>
+</html>
