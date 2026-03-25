@@ -4,45 +4,57 @@
 
 <html>
 <head>
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{% static 'todolist/style.css' %}">
     <title>Task View</title>
 </head>
 
-    <body>
-        <h1>todo app</h1>
-        <div id="div-view">
-            <form action="{% url 'todolist:todoupdate' %}" method="post">
-                {% csrf_token %}
-                <fieldset>
-                    <h3>Current saved Tasks: </h3>
-                    <h5>Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task</h5>
-                    {% if task_list %}
-                        {% for task in task_list %}
-                            {% if task.status == False %}
-                                <input type="checkbox" name="task" id="task{{forloop.counter}}" value={{task.id}}>
-                                <label for="task{{forloop.counter}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{task.task_desc}}--{{task.pub_date}}</label>
-                                <br>
-                            {% endif %}
-                        {% endfor %}
-                    {% else %}
-                        <h4>no tasks found!</h4>
-                    {% endif %}
-                </fieldset>
-                <input type="submit" value="update">
-            </form>
-        </div>
-        <br>
+<body>
+    <div id="header" class="text-center display-5 py-2 position-relative top-0">Todo View</div>
+    <div id="div-view" class="p-4 border-bottom text-light">
+        <form action="{% url 'todolist:todoupdate' %}" method="post">
+            {% csrf_token %}
+            <fieldset>
+                <h3>Current saved Tasks: </h3>
+                <h5>Status&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Task</h5>
+                {% if task_list %}
+                {% for task in task_list %}
+                {% if task.status == False %}
+                <input type="checkbox" name="task" id="task{{forloop.counter}}" value={{task.id}} class="ms-3 m-2">
+                <label class="ms-4" for="task{{forloop.counter}}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{task.task_desc}}--{{task.pub_date}}</label>
+                <br>
+                {% endif %}
+                {% endfor %}
+                {% else %}
+                <h4>no tasks found!</h4>
+                {% endif %}
+            </fieldset>
+            <input type="submit" value="update" class="btn btn-primary-subtle btn-outline-primary mt-3">
+        </form>
+    </div>
+    <br>
+    
 
-        <label for="back">do you want to add a task?</label><br>
+    <div id="btn-view" class="text-center">
+        
+        <label for="back" class="mb-2 text-light">do you want to add a task?</label><br>
         <a href="{% url 'todolist:todoadd' %}" id="back">
-            <button>click here</button>
+            <button type="button" class="btn btn-primary-subtle btn-outline-primary">click here</button>
         </a>
         <br>
-
-        <label for="back">do you want to edit a task?</label><br>
+        
+        <label for="back" class="my-2 mt-3 text-light">do you want to edit a task?</label><br>
         <a href="{% url 'todolist:edit' %}" id="edit">
-            <button>click here</button>
+            <button type="button" class="btn btn-primary-subtle btn-outline-primary">click here</button>
         </a>
-    </body>
+        
+    </div>
+    
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
 </html>

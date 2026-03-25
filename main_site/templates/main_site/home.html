@@ -1,25 +1,45 @@
 {% load static %}
 <!DOCTYPE html>
-
-<link rel="stylesheet" href="{% static 'main_site/style.css' %}">
-<html>
+<html lang="en">
     <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'main_site/style.css' %}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
         <title>Todo app</title>
     </head>
-
+    
     <body>
 
+            
+            <div id="header" class="text-center display-5 py-2 position-relative">Todolist App</div>
 
-        <h1>this is a todolist app</h1>
-        <h3>click the buttons below:</h3>
 
-        <a href="{% url 'todolist:todoview' %}">
-            <button>click here to view list of tasks</button>
-        </a>
-        <br>
-        <br>
-        <a href="{% url 'todolist:todoadd' %}">
-            <button>click here for adding a task</button>
-        </a>
+        
+        <div id="btn-block">
+            <h3 class="text-center text-info">click the buttons below:</h3>
+            
+            <div class="text-center p-5">
+                <a href="{% url 'todolist:todoview' %}">
+                <button type="button" class="btn btn-primary-subtle btn-outline-primary px-3 py-2" >click here to view list of tasks</button>
+                </a>
+                
+            <div>
+
+            <br>
+
+            <div class="text-center p-1">
+                <a href="{% url 'todolist:todoadd' %}">
+                    <button type="button" class="btn btn-primary-subtle btn-outline-primary px-4 py-2">click here for adding a task</button>
+                </a>
+            </div>
+        
+        </div>
+        
+
+
+       
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>
 </html>

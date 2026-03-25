@@ -1,27 +1,12 @@
 body {
-    background: black url("images/background.png");
+    background-color: rgb(39, 39, 39);
 }
 
-li a{
-    color: rgb(0, 247, 255);
-}
-h1 {
-    color: white;
-}
-h2 {
-    color: white;
-}
-h3 {
-    color: white;
-}
-h4{
-    color:white;
-}
-label {
-    color:white;
+#btn-block {
+    position: relative;
+    top: 100px;
 }
 
-#div-view {
-    color: white;
+#header {
+    background-color: cyan;
 }
-
